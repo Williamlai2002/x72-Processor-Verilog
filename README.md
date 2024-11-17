@@ -21,7 +21,8 @@ A tick counter (a finite state machine) tracks the instruction execution stages,
 ## DIN Wires
 
 Positioned on the middle-left of the diagram.
-Arithmetic Logic Unit (ALU)
+
+## Arithmetic Logic Unit (ALU)
 
 Located on the upper-right of the diagram.
 Accepts two 16-bit data inputs and an ALUop control signal to determine the operation.
@@ -30,28 +31,28 @@ A Register: Stores intermediate computation values.
 G Register: Holds the result of ALU computations.
 General Purpose (GP) Registers
 
-Eight 16-bit registers (R0 to R7) for data storage.
+## Eight 16-bit registers (R0 to R7) for data storage.
 For simplicity, registers R1 to R6 are omitted from the diagram.
-Instruction Register (IR)
+## Instruction Register (IR)
 
 A 9-bit special-purpose register holding the current instruction.
-Central Data Bus
+## Central Data Bus
 
 Implemented with a multiplexer featuring 10 inputs:
 Value from the IR (current instruction).
 Values from each GP register.
 Output from the ALU.
 The Bus Control signal selects which input is routed to the bus.
-Control Unit
-
+## Control Unit
 Inputs:
 Current instruction from the IR.
 Tick FSM output.
 Function:
 Decodes inputs to generate control signals like ALUop, Rin, Gin, and Bus Control, coordinating operations across the datapath.
-Tick FSM
+
+## Tick FSM
 
 Ensures multi-cycle instruction execution by breaking each instruction into smaller steps, asserting appropriate control signals at each stage.
-Reset Signal
+## Reset Signal
 
 A synchronous signal that clears all register contents, including the IR, to initialize the processor state.
