@@ -72,3 +72,47 @@ Format: Opcode + Register X (Rx) + Immediate Value.
 
 <img width="512" alt="image" src="https://github.com/user-attachments/assets/560ec8cb-3961-4623-b823-0ed3381aecf0">
 
+
+## Tick by Tick Description of Each Instruction
+
+## General Workflow
+Each instruction progresses through multiple ticks:
+Tick 1: Fetch instruction into the instruction register (IR) for decoding.
+Subsequent ticks perform operations based on the instruction type.
+
+## Instruction Breakdown
+### disp Rx
+
+Tick 2: Display the value in Rx on HEX displays.
+Tick 3 & 4: Processor idles until ready for the next instruction.
+### add Rx, Ry
+
+Tick 2: Load Rx value into register A.
+Tick 3: Add Ry value to A; store result in register G.
+Tick 4: Write result from G back into Rx.
+### addi Rx, Immi
+
+Tick 2: Load immediate value into register A.
+Tick 3: Add Rx value to A; store result in register G.
+Tick 4: Write result from G back into Rx.
+### sub Rx, Ry
+
+Tick 2: Load Rx value into register A.
+Tick 3: Subtract Ry value from A; store result in G.
+Tick 4: Write result from G back into Rx.
+### mul Rx, Ry
+
+Tick 2: Load Rx value into register A.
+Tick 3: Multiply Ry value with A; store result in G.
+Tick 4: Write result from G back into Rx.
+
+### ssi Rx (Shift and Store Immediate)
+
+Tick 2: Load immediate value into register A.
+Tick 3: Shift Rx by the immediate value; store result in G.
+Tick 4: Write result from G back into Rx.
+### movi Rx, Immi
+
+Tick 2: Load immediate value directly into Rx.
+Tick 3 & 4: Processor idles until ready for the next instruction.
+
