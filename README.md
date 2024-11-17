@@ -56,3 +56,19 @@ Ensures multi-cycle instruction execution by breaking each instruction into smal
 ## Reset Signal
 
 A synchronous signal that clears all register contents, including the IR, to initialize the processor state.
+
+
+# Opcode
+The most significant 3 bits of the 9-bit instruction represent the opcode.
+Up to 8 instructions are supported, each defining a specific operation.
+
+## Instruction types:
+Type 1: Register-to-Register Operations
+Move and manipulate data between two registers.
+Format: Opcode + Register X (Rx) + Register Y (Ry).
+Type 2: Immediate Value Operations
+Introduce or manipulate data using immediate values.
+Format: Opcode + Register X (Rx) + Immediate Value.
+
+<img width="512" alt="image" src="https://github.com/user-attachments/assets/560ec8cb-3961-4623-b823-0ed3381aecf0">
+
